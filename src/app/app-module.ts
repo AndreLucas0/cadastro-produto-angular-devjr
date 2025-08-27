@@ -8,6 +8,7 @@ import { Header } from './components/header/header';
 import { Product } from './components/product/product';
 import { Products } from './components/products/products';
 import { Footer } from './components/footer/footer';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { Footer } from './components/footer/footer';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners()

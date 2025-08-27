@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Category } from '../../interfaces/Category';
+import { ProductInterface } from '../../interfaces/Product';
 
 @Component({
   selector: 'app-product',
@@ -7,23 +8,23 @@ import { Category } from '../../interfaces/Category';
   templateUrl: './product.html',
   styleUrl: './product.css'
 })
-export class Product {
+export class Product implements OnInit {
+  
+  ngOnInit(): void {
+  }
 
   @Input()
-  category : Category = {} as Category;
+  categories : Category [] = [];
 
-  categories : Category[] = [
-    {
-      id : 1,
-      name : "Nacional"
-    },
-    {
-      id : 2,
-      name : "Importado"
-    },
-    {
-      id : 3,
-      name : "Premium"
-    }
-  ]
+  product : ProductInterface = {} as ProductInterface;
+
+  @Output()
+  saveEmitter = new EventEmitter();
+
+  save() {
+    console.log(this.product);
+    this.saveEmitter.emit();
+  }
+
+  
 }
