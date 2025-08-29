@@ -1,4 +1,5 @@
-import { NgModule, provideBrowserGlobalErrorListeners } from '@angular/core';
+import { NgModule, provideBrowserGlobalErrorListeners, LOCALE_ID } from '@angular/core';
+import localePt from '@angular/common/locales/pt';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing-module';
@@ -9,6 +10,9 @@ import { Product } from './components/product/product';
 import { Products } from './components/products/products';
 import { Footer } from './components/footer/footer';
 import { FormsModule } from '@angular/forms';
+import { registerLocaleData } from '@angular/common';
+
+registerLocaleData(localePt, 'pt')
 
 @NgModule({
   declarations: [
@@ -25,6 +29,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule
   ],
   providers: [
+    {provide: LOCALE_ID, useValue: 'pt'},
     provideBrowserGlobalErrorListeners()
   ],
   bootstrap: [App]

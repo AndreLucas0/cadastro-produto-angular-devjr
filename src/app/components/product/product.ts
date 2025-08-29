@@ -16,13 +16,13 @@ export class Product implements OnInit {
   @Input()
   categories : Category [] = [];
 
-  product : ProductInterface = {} as ProductInterface;
+  @Input()
+  product ?: ProductInterface;
 
   @Output()
   saveEmitter = new EventEmitter();
 
   save() {
-    console.log(this.product);
     this.saveEmitter.emit();
   }
 
