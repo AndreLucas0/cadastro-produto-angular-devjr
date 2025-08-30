@@ -21,7 +21,13 @@ export class Products implements OnInit {
   constructor(private categoryService: CategoryService, private productService: ProductService) {}
 
   ngOnInit(): void {
-    this.categories = this.categoryService.getCategories();
+    // this.categories = this.categoryService.getCategories();
+    this.categoryService.getCategories().subscribe(
+      {
+        next: data => {this.categories = data}
+      }
+    );
+
     this.products = this.productService.getProducts();
   }
 
